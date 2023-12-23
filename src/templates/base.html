@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    {% block title %}{% endblock %}
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="Prog Web BCC">
+    <meta name="author" content="GOB System and BCC-IFG">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- Bootstrap core CSS and JS -->
+
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+    <link rel="stylesheet" href="{% static 'site_index/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'site_index/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'site_index/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'site_index/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'site_index/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'site_index/css/style.css' %}">
+
+
+    {% block style %}<!-- insert style -->{% endblock %}
+
+
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Meu Primeiro Sistema<span>.</span></a>
+            <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
+                data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav nav ml-auto">
+                    {% block sidebar %}
+                    {% endblock sidebar %}
+                    <li class="nav-item"><a href="{% url 'site' %}" class="nav-link"><span>Home</span></a></li>
+                    <li class="nav-item"><a href="{% url 'admin:index' %}" class="nav-link"><span>Admin</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+
+    {% block content %}
+    {% endblock %}
+
+
+<footer class="ftco-footer ftco-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Sobre</h2>
+                    <p>Base padrão para um sistema web, robusto e escalável, Docker, Nginx, Django, Celery, Redis, Postgresql.</p>
+                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                        <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4 ml-md-4">
+                    <h2 class="ftco-heading-2">Links</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="#"></span>Home</a></li>
+                        <li><a href="#"></span>About</a></li>
+                        <li><a href="#"></span>Chapter</a></li>
+                        <li><a href="#"></span>Reviews</a></li>
+                        <li><a href="#"></span>Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Services</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="#"></span>Experience</a></li>
+                        <li><a href="#"></span>Marketing Goals</a></li>
+                        <li><a href="#"></span>Targetting Vission</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Duvidas?</h2>
+                    <div class="block-23 mb-3">
+                        <ul>
+                            <li><span class="icon fa fa-map-marker"></span><span class="text">https://www.linkedin.com/in/gabriel-braga-8112a8142</span></li>
+                            <li><a href="#"><span class="icon fa fa-paper-plane"></span><span
+                                        class="text">gabriel.braga@gobsystem.dev</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+
+                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script> BCC - IFG | GOB System © Todos os Direitos Reservados
+                    Desenvolvido por <a href="https://gobsystem.dev"
+                        target="_blank">GOB System</a>
+                        e parcecia com <a href="https://bcc.ifg.edu.br/"
+                        target="_blank">BCC IFG</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+    <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+    <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+        stroke="#F96D00" />
+</svg></div>
+
+<script src="{% static 'site_index/js/jquery.min.js' %}"></script>
+<script src="{% static 'site_index/js/jquery-migrate-3.0.1.min.js' %}"></script>
+<script src="{% static 'site_index/js/popper.min.js' %}"></script>
+<script src="{% static 'site_index/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'site_index/js/jquery.easing.1.3.js' %}"></script>
+<script src="{% static 'site_index/js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'site_index/js/jquery.stellar.min.js' %}"></script>
+<script src="{% static 'site_index/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'site_index/js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'site_index/js/jquery.animateNumber.min.js' %}"></script>
+<script src="{% static 'site_index/js/scrollax.min.js' %}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="{% static 'site_index/js/google-map.js' %}"></script>
+
+<script src="{% static 'site_index/js/main.js' %}"></script>
+
+
+{% block javascript %}
+<!-- Script Block-->
+{% endblock javascript %}
+</body>
+</html>
