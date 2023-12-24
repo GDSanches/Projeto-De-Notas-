@@ -9,15 +9,7 @@ class DemoModel(models.Model):
     def __str__(self):
         return self.title
     
-    
-class Nota (models.Model):
-        id = models.AutoField(primary_key=True)
-        titulo = models.TextField(blank=False, null=False)
-        conteudo = models.TextField(blank=False, null=False)
 
-        def __str__(self):
-            return self.id
-        
 class Usuario(models.Model):
 
     id = models.AutoField(primary_key=True)
@@ -31,3 +23,13 @@ class Usuario(models.Model):
 
     def __str__(self):
         return self.usuario
+    
+class Nota (models.Model):
+        id = models.AutoField(primary_key=True)
+        titulo = models.TextField(blank=False, null=False)
+        conteudo = models.TextField(blank=False, null=False)
+        usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+
+        def __str__(self):
+            return self.id
+        

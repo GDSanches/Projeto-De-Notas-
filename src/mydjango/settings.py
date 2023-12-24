@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'myapp.apps.MyappConfig',
     'celery',
     'bootstrap5',
+    'rest_framework',
+    'django'
 ]
 
 MIDDLEWARE = [
@@ -151,6 +153,16 @@ LOGGING = {
             'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
         },
     },
+}
+
+REST_FRAMEWORK = {
+  "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
+  "DEFAULT_RENDERER_CLASSES": [
+    "rest_framework.renderers.JSONRenderer",
+    "rest_framework.renderers.BrowsableAPIRenderer",
+  ],
+  "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+  "PAGE_SIZE": 10,
 }
 
 # ---------------- Local Settings ---------------------------------------
