@@ -3,6 +3,7 @@ version: "3"
 volumes:
   local_postgres_data: {}
   local_postgres_data_backups: {}
+  postgres_data:
 
 services:
   nginx:
@@ -37,15 +38,13 @@ services:
     networks:
       - djangonetwork
   db:
-    build:
-      context: .
-      dockerfile: compose/postgres/Dockerfile
-    container_name: pz01
-    env_file:
-      - ./.envs/.postgres
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
     volumes:
-      - local_postgres_data:/var/lib/postgresql/data
-      - local_postgres_data_backups:/backups
+      - postgres_data:/var/lib/postgresql/data/
     networks:
       - djangonetwork
   redis:

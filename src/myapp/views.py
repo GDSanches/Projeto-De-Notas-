@@ -1,8 +1,10 @@
 from django import get_version
 from django.views.generic import TemplateView
-from .models import  Nota
+from .models import  Nota, Usuario
 from myapp.forms import formularioUsuario
 from django.shortcuts import render
+from .serializers import UsuarioSerializer, NotaSerializer
+from rest_framework import generics
 # Create your views here.
 
 
@@ -37,6 +39,18 @@ def login(request):
         }
         return render(request, 'login.html', context= context)
     
-def notas_list(request):
-    notas = Nota.objects.all()
-    return render(request, 'home.html', {'notas': notas})
+class Usuario_List(generics.ListCreateAPIView):
+  queryset = Usuario.objects.all()
+  serializer_class = UsuarioSerializer
+
+class Usuario_Detail(generics.RetrieveUpdateDestroyAPIView):
+  queryset = Usuario.objects.all()
+  serializer_class = UsuarioSerializer
+
+class Nota_List(generics.ListCreateAPIView):
+  queryset = Nota.objects.all()
+  serializer_class = NotaSerializer
+
+class Nota_Detail(generics.RetrieveUpdateDestroyAPIView):
+  queryset = Nota.objects.all()
+  serializer_class = NotaSerializer

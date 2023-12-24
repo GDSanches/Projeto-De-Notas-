@@ -29,6 +29,10 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     path('login/',views.login, name='form_login'),
     path('home/', views.home.as_view(), name='site'),
+    path("api/users/", views.Usuario_List.as_view()),
+    path("api/users/<int:pk>/", views.Usuario_Detail.as_view()),
+    path("api/notes/", views.Nota_List.as_view()),
+    path("api/notes/<int:pk>/", views.Nota_Detail.as_view()),
 
 ]
 # urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
