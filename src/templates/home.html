@@ -55,6 +55,39 @@
             line-height: 60px;
           }
           </style>
+            <script>
+            // Criar uma função para mostrar as notas na página
+                function mostrarNotas() {
+                    // Fazer uma requisição GET para a rota da API que retorna todas as notas
+                    axios.get('/api/notas/')
+                    .then(function (response) {
+                        // Se a requisição for bem sucedida, pegar os dados das notas
+                        let notas = response.data;
+                        // Criar uma variável para armazenar o HTML das notas
+                        let htmlNotas = '';
+                        // Percorrer o array de notas e criar um elemento HTML para cada uma
+                        for (let nota of notas) {
+                        htmlNotas += `
+                            <div class="nota">
+                            <h3>${nota.titulo}</h3>
+                            <p>${nota.conteudo}</p>
+                            </div>
+                        `;
+                        }
+                        // Selecionar o elemento HTML onde as notas serão mostradas
+                        let containerNotas = document.getElementById('container-notas');
+                        // Inserir o HTML das notas no elemento
+                        containerNotas.innerHTML = htmlNotas;
+                    })
+                    .catch(function (error) {
+                        // Se a requisição falhar, mostrar um erro no console
+                        console.log(error);
+                    });
+                }
+                
+                // Chamar a função quando a página carregar
+                window.onload = mostrarNotas;
+            </script>
           </head>
           <body>
           <div class="container">

@@ -14,7 +14,7 @@ class Usuario(models.Model):
 
     id = models.AutoField(primary_key=True)
     usuario = models.CharField(max_length=50, blank=False, null=False, default='')
-    idade = models.CharField(max_length=50,blank=False, null=False, default='')
+    senha = models.CharField(max_length=50,blank=False, null=False, default='')
 
     class Meta:
         verbose_name = ('usuario')

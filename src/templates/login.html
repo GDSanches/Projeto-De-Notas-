@@ -63,22 +63,15 @@
 
 </head>
 <body>
-<div class="row">
-  <div class="col-md-4 offset-md4">
-    <div class="card auth-card">
-      <div class="card-body">
-        <h4 class="card-title" text-center>Fazer Login</h4>
-        <form method="post">
-          {% csrf_token %}
-          <input type="hidden" name="next" value="{{ next }}">
+  {% extends "base.html" %}
 
-          {{ form }}
-          <button type="submit" class="btn btn-primary btn-block">Entrar</button>
-        </form>
-      </div>
-    </div>
-  </div>
-
-</div>
+  {% block content %}
+    <h2>Login</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Login</button>
+    </form>
+  {% endblock %}
 </body>
 </html>

@@ -20,6 +20,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.auth import views as auth_views
 from myapp import views
+from myapp.views import CustomLoginView
+
 
 
 
@@ -27,8 +29,9 @@ from myapp import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    path('login/',views.login, name='form_login'),
+    path('', CustomLoginView.as_view(), name='login'),
     path('home/', views.home.as_view(), name='site'),
+    path('novo/', views.cria_nota.as_view(), name='novo'),
     path("api/users/", views.Usuario_List.as_view()),
     path("api/users/<int:pk>/", views.Usuario_Detail.as_view()),
     path("api/notes/", views.Nota_List.as_view()),
