@@ -1,15 +1,6 @@
 from django.db import models
 
 
-class DemoModel(models.Model):
-    title = models.CharField(max_length=255)
-    body = models.TextField()
-    image = models.ImageField(upload_to="demo_images")
-
-    def __str__(self):
-        return self.title
-    
-
 class Usuario(models.Model):
 
     id = models.AutoField(primary_key=True)
@@ -22,7 +13,7 @@ class Usuario(models.Model):
         verbose_name_plural = ("usuarios")
 
     def __str__(self):
-        return self.usuario
+        return self.id
     
 class Nota (models.Model):
         id = models.AutoField(primary_key=True)

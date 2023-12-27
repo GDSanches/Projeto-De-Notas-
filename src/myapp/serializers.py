@@ -10,4 +10,4 @@ class UsuarioSerializer(serializers.ModelSerializer):
 class NotaSerializer(serializers.ModelSerializer):
   class Meta:
     model = Nota
-    fields = ["id", "titulo", "conteudo"]
+    fields = ["id", "titulo", "conteudo","usuario_id"]

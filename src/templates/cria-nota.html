@@ -50,44 +50,15 @@ body {
 </style>
 </head>
 <body>
-  <form id="form-nota" class="editor">
+  <form id="form-nota" class="editor" action="{% url 'salvar-nota' %}" method="post">
+    {% csrf_token %}
     <label for="titulo">Título:</label>
     <input type="text" id="titulo" name="titulo" class="title-input" required>
     <label for="conteudo">Conteúdo:</label>
     <textarea id="conteudo" name="conteudo" class="content-input" required></textarea>
+    <input type="hidden" name="usuario" value="{{ user.id }}">
     <button type="submit">Salvar</button>
   </form>
 </div>
-<script>
-
-  // Criar uma função para criar uma nova nota
-  function criarNota() {
-    // Selecionar o formulário HTML onde o usuário digita os dados da nota
-    let formNota = document.getElementById('form-nota');
-    // Adicionar um evento de submit ao formulário
-    formNota.addEventListener('submit', function (event) {
-      // Prevenir o comportamento padrão do formulário, que é recarregar a página
-      event.preventDefault();
-      // Pegar os dados do formulário usando o FormData
-      let dadosNota = new FormData(formNota);
-      // Fazer uma requisição POST para a rota da API que cria uma nova nota
-      axios.post('/api/notas/', dadosNota)
-        .then(function (response) {
-          // Se a requisição for bem sucedida, mostrar uma mensagem de sucesso
-          alert('Nota criada com sucesso!');
-          // Redirecionar o usuário para a página home.html
-          window.location.href = 'home.html';
-        })
-        .catch(function (error) {
-          // Se a requisição falhar, mostrar um erro no console
-          console.log(error);
-        });
-    });
-  }
-
-  // Chamar a função quando a página carregar
-  window.onload = criarNota;
-
-</script>
 </body>
 </html>
