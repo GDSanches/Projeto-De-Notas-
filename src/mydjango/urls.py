@@ -19,12 +19,8 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.auth import views as auth_views
-from myapp import views
+from myapp import views 
 from myapp.views import CustomLoginView
-
-
-
-
 
 
 urlpatterns = [
@@ -32,13 +28,10 @@ urlpatterns = [
     
     path('', CustomLoginView.as_view(), name='login'),
     path('home/', views.home.as_view(), name='site'),
-    path('novo/', views.cria_nota.as_view(), name='novo'),
-  #  path("api/users/", views.Usuario_List.as_view()),
-  #  path("api/users/<int:pk>/", views.Usuario_Detail.as_view()),
-    path("api/notes/", views.Nota_List.as_view()),
-    path("api/notes/<int:pk>/", views.Nota_Detail.as_view()),
+    path("api/usuario/", views.Usuario_List.as_view()),
+    #path("api/usuario/<int:pk>/", views.Usuario_Detail.as_view()),
+    path("api/notas/", views.Nota_List.as_view()),
+    path("api/notas/<int:pk>/", views.Nota_Detail.as_view()),
     path ('salvar-nota/',views.salvar_nota, name='salvar-nota'),
 
 ]
-# urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

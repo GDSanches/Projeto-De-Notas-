@@ -12,12 +12,27 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='DemoModel',
+            name='Usuario',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=255)),
-                ('body', models.TextField()),
-                ('image', models.ImageField(upload_to='demo_images')),
+                ('id', models.AutoField(primary_key=True)),
+                ('usuario', models.CharField(default='', max_length=50)),
+               ('senha', models.CharField(default='', max_length=50)),
+            ],
+            options={
+                'ordering': ('usuario',),
+                'verbose_name': 'usuario',
+                'verbose_name_plural': 'usuarios',
+            },
+        ),
+
+        migrations.CreateModel(
+            name='Nota',
+            fields=[
+                ('id', models.AutoField(primary_key=True)),
+                ('titulo', models.TextField()),
+                ('conteudo', models.TextField()),
             ],
         ),
+
+
     ]

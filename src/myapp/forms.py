@@ -12,7 +12,7 @@ class formularioNota(forms.ModelForm):
         fields = "__all__"
     
     Titulo = forms.CharField( max_length=50, required=True)
-    conteudo = forms.CharField()
+    conteudo = forms.CharField( required=True)
 
 class formularioUsuario(forms.ModelForm):
 

@@ -18,6 +18,16 @@
             flex-wrap: wrap;
             margin: 20px;
           }
+
+          .nota {
+            color: #000;
+            font-family: Poppins;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            padding: 40px ;
+          }
           
           .box {
             width: 300px;
@@ -56,16 +66,14 @@
           }
           </style>
             <script>
-            // Criar uma função para mostrar as notas na página
                 function mostrarNotas() {
-                    // Fazer uma requisição GET para a rota da API que retorna todas as notas
                     axios.get('/api/notas/')
                     .then(function (response) {
-                        // Se a requisição for bem sucedida, pegar os dados das notas
+                        
                         let notas = response.data;
-                        // Criar uma variável para armazenar o HTML das notas
+                       
                         let htmlNotas = '';
-                        // Percorrer o array de notas e criar um elemento HTML para cada uma
+                        
                         for (let nota of notas) {
                         htmlNotas += `
                             <div class="nota">
@@ -74,29 +82,27 @@
                             </div>
                         `;
                         }
-                        // Selecionar o elemento HTML onde as notas serão mostradas
                         let containerNotas = document.getElementById('container-notas');
-                        // Inserir o HTML das notas no elemento
                         containerNotas.innerHTML = htmlNotas;
                     })
                     .catch(function (error) {
-                        // Se a requisição falhar, mostrar um erro no console
                         console.log(error);
                     });
                 }
-                
-                // Chamar a função quando a página carregar
                 window.onload = mostrarNotas;
             </script>
           </head>
           <body>
+            <h2 class ="nota">Notas</h2>
           <div class="container">
             <div class="box">
-              <div class="title">Aqui vai ficar o titulo</div>
-              <div class="description">aqui a descrição da nota</div>
+              <div class="title">Titulo</div>
+              <div class="description">Descrição</div>
             </div>
           </div>
-          <div class="add-button">+</div>
+          <div class="add-button" onclick="location.href = '{% url 'salvar-nota' %}'">
+            +
+          </div>
 
 </body>
 </html>
